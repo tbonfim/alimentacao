@@ -195,6 +195,14 @@
         .color-bar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; margin-top: 14px; }
         .color-bar div { flex: 1; }
 
+        /* ── Colapsável ── */
+        .coll-hd { cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; border-radius: 8px; padding: 4px 6px; margin: -4px -6px; }
+        .coll-hd:hover { background: rgba(44,95,46,0.06); }
+        .coll-icon { font-size: 13px; color: #2c5f2e; transition: transform 0.2s; flex-shrink: 0; margin-left: 10px; }
+        .collapsible-section.collapsed .coll-body { display: none; }
+        .collapsible-section.collapsed .coll-icon { transform: rotate(-90deg); }
+        .coll-hd .coll-label { font-size: 11px; color: #888; font-weight: 400; text-transform: none; letter-spacing: 0; margin-left: 10px; }
+
         @media print {
             .semana-grid { display: none; }
             .day-plan { display: block !important; }
@@ -892,9 +900,12 @@
     </div>
 
     <!-- ═══════════════════════ ORIENTAÇÕES ═══════════════════════ -->
-    <div class="obs">
-        <h3>Orientações Gerais</h3>
-        <ul>
+    <div class="obs collapsible-section">
+        <div class="coll-hd" onclick="toggleSection(this)">
+            <h3>Orientações Gerais</h3>
+            <span class="coll-icon">▼</span>
+        </div>
+        <div class="coll-body"><ul>
             <li><strong>Hidratação:</strong> mínimo 2,5 a 3 litros de água/dia. Priorize beber entre as refeições.</li>
             <li><strong>Temperos livres:</strong> sal (com moderação), pimenta, açafrão, orégano, manjericão, alho, cebola, limão e ervas naturais.</li>
             <li><strong>Adoçantes:</strong> evite os artificiais. Se precisar, use eritritol ou stévia pura.</li>
@@ -905,13 +916,16 @@
             <li><strong>Refeição livre:</strong> 1 por semana — sábado é um bom dia. Não transforme em dia inteiro livre.</li>
             <li><strong>Fome entre refeições:</strong> beba água e espere 15 min. Se persistir: chá, vegetal A (pepino, cenoura crua) ou 4 castanhas do pará.</li>
             <li><strong>Consistência acima de perfeição:</strong> um deslize não desfaz o progresso. Retome na próxima refeição.</li>
-        </ul>
+        </ul></div>
     </div>
 
     <!-- ═══════════════════════ SUBSTITUIÇÕES ═══════════════════════ -->
-    <div class="subs">
-        <h2>Lista de Substituições por Grupo</h2>
-        <div class="sub-grid">
+    <div class="subs collapsible-section">
+        <div class="coll-hd" onclick="toggleSection(this)" style="border-bottom: 3px solid #2c5f2e; padding-bottom: 10px; margin-bottom: 0;">
+            <h2 style="margin:0; border:none; padding:0;">Lista de Substituições por Grupo</h2>
+            <span class="coll-icon" style="font-size:16px;">▼</span>
+        </div>
+        <div class="coll-body" style="padding-top:20px;"><div class="sub-grid">
             <div class="sub-card">
                 <div class="sub-head g1">Vegetal A — Livre</div>
                 <table>
@@ -1023,7 +1037,7 @@
                     <tr><td>Cream cheese light</td><td>1 col. sopa (20 g)</td></tr>
                 </table>
             </div>
-        </div>
+        </div></div>
     </div>
 
     <!-- Footer -->
@@ -1050,6 +1064,10 @@
 </div>
 
 <script>
+    function toggleSection(hd) {
+        hd.closest('.collapsible-section').classList.toggle('collapsed');
+    }
+
     const days = ['dom','seg','ter','qua','qui','sex','sab'];
 
     function showDay(id, jsDay) {
