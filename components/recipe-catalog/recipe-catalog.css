@@ -1,0 +1,69 @@
+recipe-catalog .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+recipe-catalog .filter-group {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+recipe-catalog .filter-group + .filter-group {
+    border-left: 2px solid #eee;
+    padding-left: 8px;
+}
+
+recipe-catalog button.fb {
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+recipe-catalog button.fb:hover {
+    border-color: #2c5f2e;
+    color: #2c5f2e;
+}
+
+recipe-catalog button.fb.active {
+    background: #2c5f2e;
+    color: #fff;
+    border-color: #2c5f2e;
+}
+
+recipe-catalog button.fb.active.cat-jantar {
+    background: #1565a0;
+    border-color: #1565a0;
+}
+
+recipe-catalog button.fb.active.cat-almoco {
+    background: #e67e22;
+    border-color: #e67e22;
+}
+
+recipe-catalog .search-bar { margin-bottom: 16px; }
+
+recipe-catalog .search-bar input {
+    width: 100%;
+    padding: 9px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+recipe-catalog .search-bar input:focus {
+    outline: none;
+    border-color: #2c5f2e;
+}
+
+recipe-catalog .count {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 16px;
+}

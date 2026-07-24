@@ -1,0 +1,80 @@
+collapsible-panel.obs {
+    display: block;
+    margin-top: 28px;
+    background: #f4f9f4;
+    border: 1px solid #cfe0cf;
+    border-radius: 10px;
+    padding: 22px 26px;
+}
+
+collapsible-panel.obs h3 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #2c5f2e;
+    letter-spacing: 0.6px;
+    margin-bottom: 0;
+}
+
+collapsible-panel.obs ul { list-style: none; }
+collapsible-panel.obs ul li {
+    font-size: 13px;
+    padding: 5px 0 5px 22px;
+    position: relative;
+    color: #444;
+}
+
+collapsible-panel.obs ul li::before {
+    content: "✓";
+    color: #2c5f2e;
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+}
+
+collapsible-panel.subs {
+    display: block;
+    margin-top: 36px;
+}
+
+collapsible-panel.subs .coll-hd {
+    border-bottom: 3px solid #2c5f2e;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+}
+
+collapsible-panel.subs h2 {
+    margin: 0;
+    border: none;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 800;
+    color: #1a1a1a;
+}
+
+collapsible-panel.subs .coll-icon { font-size: 16px; }
+collapsible-panel.subs .coll-body { padding-top: 20px; }
+
+.coll-hd {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    border-radius: 8px;
+    padding: 4px 6px;
+    margin: -4px -6px;
+}
+
+.coll-hd:hover { background: rgba(44, 95, 46, 0.06); }
+
+.coll-icon {
+    font-size: 13px;
+    color: #2c5f2e;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+    margin-left: 10px;
+}
+
+.collapsible-section.collapsed .coll-body { display: none; }
+.collapsible-section.collapsed .coll-icon { transform: rotate(-90deg); }

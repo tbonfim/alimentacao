@@ -1,0 +1,56 @@
+.sub-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.sub-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.sub-head {
+    padding: 10px 14px;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #fff;
+}
+
+.sub-head.g1 { background: #2c5f2e; }
+.sub-head.g2 { background: #16a085; }
+.sub-head.g3 { background: #e67e22; }
+.sub-head.g4 { background: #c0392b; }
+.sub-head.g5 { background: #8e44ad; }
+.sub-head.g6 { background: #2980b9; }
+.sub-head.g7 { background: #7f8c8d; }
+.sub-head.g8 { background: #d35400; }
+
+.sub-card table { width: 100%; border-collapse: collapse; }
+.sub-card table tr:nth-child(even) { background: #fafafa; }
+.sub-card table td {
+    padding: 6px 12px;
+    font-size: 11.5px;
+    border-bottom: 1px solid #f2f2f2;
+}
+.sub-card table td:last-child { text-align: right; color: #666; }
+.sub-card table td.sect {
+    background: #f0f0f0;
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #555;
+    letter-spacing: 0.5px;
+}
+
+.sub-intro {
+    font-size: 10px;
+    color: #888;
+    font-style: italic;
+}
+
+@media (max-width: 640px) {
+    .sub-grid { grid-template-columns: 1fr; }
+}
