@@ -1,4 +1,4 @@
-const MEAL_PLAN = {
+window.MEAL_PLAN = {
   "infoStats": [
     {
       "lbl": "Peso Atual",

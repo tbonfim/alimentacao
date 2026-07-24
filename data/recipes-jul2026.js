@@ -1,4 +1,4 @@
-const RECIPES_DATA = {
+window.RECIPES_DATA = {
   "recipes": [
     {
       "id": "frango-grelhado-com-lim-o-e-ervas",
