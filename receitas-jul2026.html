@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Receitas — Plano Alimentar Thiago Oliveira</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f0; color:#333; line-height:1.5; }
+.page { max-width:960px; margin:32px auto; background:#fff; padding:40px 48px; border-radius:12px; box-shadow:0 4px 24px rgba(0,0,0,0.08); }
+
+.header { display:flex; justify-content:space-between; align-items:flex-end; padding-bottom:16px; border-bottom:3px solid #2c5f2e; margin-bottom:24px; }
+.header h1 { font-size:36px; font-weight:800; color:#1a1a1a; }
+.header .back { font-size:13px; color:#2c5f2e; text-decoration:none; font-weight:600; }
+.header .back:hover { text-decoration:underline; }
+
+.filters { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+.filter-group { display:flex; gap:6px; flex-wrap:wrap; }
+.filter-group + .filter-group { border-left:2px solid #eee; padding-left:8px; }
+button.fb { border:1px solid #ccc; background:#fff; border-radius:20px; padding:5px 14px; font-size:12px; cursor:pointer; transition:all .15s; }
+button.fb:hover { border-color:#2c5f2e; color:#2c5f2e; }
+button.fb.active { background:#2c5f2e; color:#fff; border-color:#2c5f2e; }
+button.fb.active.cat-jantar { background:#1565a0; border-color:#1565a0; }
+button.fb.active.cat-almoco { background:#e67e22; border-color:#e67e22; }
+
+.search-bar { margin-bottom:16px; }
+.search-bar input { width:100%; padding:9px 14px; border:1px solid #ddd; border-radius:8px; font-size:13px; }
+.search-bar input:focus { outline:none; border-color:#2c5f2e; }
+
+.count { font-size:12px; color:#888; margin-bottom:16px; }
+
+.rcard { border:1px solid #dde8dd; border-radius:10px; margin-bottom:10px; overflow:hidden; }
+.rhead { padding:14px 18px; cursor:pointer; background:#f7faf7; user-select:none; }
+.rhead:hover { background:#eef5ee; }
+.rh-main { display:flex; justify-content:space-between; align-items:center; }
+.rtitle { font-size:15px; font-weight:700; color:#1a1a1a; }
+.rchev { font-size:12px; color:#2c5f2e; transition:transform .2s; flex-shrink:0; margin-left:10px; }
+.rcard.open .rchev { transform:rotate(180deg); }
+.rbadges { display:flex; gap:6px; flex-wrap:wrap; margin-top:7px; align-items:center; }
+.rbody { display:none; padding:18px; border-top:1px solid #e8f0e8; }
+.rcard.open .rbody { display:block; }
+
+.badge { display:inline-block; font-size:10px; font-weight:700; padding:2px 9px; border-radius:10px; color:#fff; text-transform:uppercase; letter-spacing:.3px; }
+.b-frango { background:#e67e22; }
+.b-peixe  { background:#2980b9; }
+.b-carne  { background:#c0392b; }
+.b-ovos   { background:#f39c12; }
+.b-espec  { background:#8e44ad; }
+.b-ambos  { background:#16a085; }
+.b-almoco { background:#e67e22; }
+.b-jantar { background:#1565a0; }
+.rtime { font-size:11px; color:#888; }
+
+.rcols { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:14px; }
+.rcols h4 { font-size:11px; text-transform:uppercase; color:#2c5f2e; letter-spacing:.6px; margin-bottom:10px; font-weight:700; }
+.ring ul { list-style:none; }
+.ring ul li { font-size:13px; padding:4px 0; border-bottom:1px solid #f4f4f4; color:#444; }
+.ring ul li:last-child { border-bottom:none; }
+.ring ul li strong { color:#222; }
+.rprep ol { padding-left:18px; }
+.rprep ol li { font-size:13px; padding:4px 0; color:#444; }
+.rserve { background:#f0f9f0; border-radius:8px; padding:10px 14px; font-size:12px; color:#2c5f2e; border-left:3px solid #2c5f2e; }
+.rnote { background:#fffbec; border-radius:8px; padding:8px 14px; font-size:12px; color:#7a6300; margin-top:10px; }
+
+@media(max-width:640px) { .rcols { grid-template-columns:1fr; } .page { padding:20px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div>
+      <h1>Receitas</h1>
+      <p style="font-size:12px;color:#888;margin-top:4px;">Plano Alimentar — Thiago Oliveira — Jul/2026</p>
+    </div>
+    <a href="index.html" class="back">← Voltar ao Plano</a>
+  </div>
+
+  <div class="filters">
+    <div class="filter-group">
+      <button class="fb active" onclick="setCat('all',this)">Todas</button>
+      <button class="fb cat-almoco" onclick="setCat('almoco',this)">Almoço</button>
+      <button class="fb cat-jantar" onclick="setCat('jantar',this)">Jantar</button>
+    </div>
+    <div class="filter-group">
+      <button class="fb active" onclick="setProt('all',this)">Todas as proteínas</button>
+      <button class="fb" onclick="setProt('frango',this)">🍗 Frango</button>
+      <button class="fb" onclick="setProt('peixe',this)">🐟 Peixe</button>
+      <button class="fb" onclick="setProt('carne',this)">🥩 Carne</button>
+      <button class="fb" onclick="setProt('ovos',this)">🥚 Ovos</button>
+      <button class="fb" onclick="setProt('especial',this)">✨ Especiais</button>
+    </div>
+  </div>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Buscar receita..." oninput="setSearch(this.value)">
+  </div>
+
+  <div class="count" id="count">35 receitas</div>
+
+  <!-- ══════ RECEITAS ══════ -->
+
+  <article class="rcard" data-cat="ambos" data-prot="frango">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Frango Grelhado com Limão e Ervas</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-frango">🍗 Frango</span><span class="badge b-ambos">Almoço &amp; Jantar</span><span class="rtime">⏱ 25 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>180 g</strong> peito de frango cru</li>
+          <li>Suco de ½ limão tahiti</li>
+          <li><strong>1 col. sopa</strong> azeite extravirgem (8 g)</li>
+          <li>2 dentes de alho amassados</li>
+          <li>Sal, pimenta-do-reino, orégano e alecrim a gosto</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Tempere o frango com limão, alho, sal, pimenta e orégano. Marine 15 min.</li>
+          <li>Aqueça frigideira antiaderente com azeite em fogo alto.</li>
+          <li>Grelhe 5–6 min de cada lado até dourar por completo.</li>
+          <li>Finalize com alecrim fresco por cima antes de servir.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço:</strong> + 1 esc. arroz integral + 1 concha feijão + salada de folhas &nbsp;|&nbsp; <strong>Jantar:</strong> + 2 esc. batata doce assada + salada de folhas</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="ambos" data-prot="peixe">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Tilápia Assada com Crosta de Aveia e Ervas</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-peixe">🐟 Peixe</span><span class="badge b-ambos">Almoço &amp; Jantar</span><span class="rtime">⏱ 25 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>200 g</strong> tilápia (2 filés)</li>
+          <li><strong>3 col. sopa</strong> farelo de aveia</li>
+          <li>Salsinha, cebolinha e orégano picados</li>
+          <li>Raspas de ½ limão siciliano</li>
+          <li><strong>1 col. sopa</strong> azeite extravirgem (8 g)</li>
+          <li>Sal e pimenta a gosto</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Misture o farelo de aveia com as ervas, raspas de limão, sal e azeite até formar uma farofinha úmida.</li>
+          <li>Tempere os filés com sal e pimenta. Pressione a crosta sobre um dos lados.</li>
+          <li>Coloque em forma levemente untada com a crosta para cima.</li>
+          <li>Asse a 200 °C por 20 min sem virar — a crosta fica dourada e crocante.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço:</strong> + 1 esc. arroz integral + 1 concha feijão + salada &nbsp;|&nbsp; <strong>Jantar:</strong> + 2 esc. batata doce assada + salada</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="almoco" data-prot="frango">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Strogonoff de Frango Light</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-frango">🍗 Frango</span><span class="badge b-almoco">Almoço</span><span class="rtime">⏱ 30 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>180 g</strong> peito de frango em cubinhos</li>
+          <li>½ cebola picada</li>
+          <li>2 dentes de alho amassados</li>
+          <li><strong>3 col. sopa</strong> iogurte natural integral (substitui o creme de leite)</li>
+          <li><strong>1 col. sopa</strong> extrato de tomate (sem açúcar)</li>
+          <li>Champignon laminado a gosto (opcional)</li>
+          <li><strong>1 col. sopa</strong> azeite extravirgem (8 g)</li>
+          <li>Sal, pimenta e noz-moscada a gosto</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Refogue cebola e alho no azeite até dourar (3 min).</li>
+          <li>Adicione o frango em cubos e sele bem por 5 min.</li>
+          <li>Junte o extrato de tomate e o champignon. Adicione 50 ml de água e cozinhe 5 min.</li>
+          <li>Desligue o fogo, misture o iogurte e acerte o sal e noz-moscada. Não ferva após o iogurte.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço:</strong> + 1 esc. arroz integral + salada de folhas. Sem batata palha.</div>
+      <div class="rnote">💡 O iogurte substitui o creme de leite com muito menos gordura saturada. O resultado é cremoso e saboroso.</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="ambos" data-prot="carne">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Picadinho de Patinho com Legumes</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-carne">🥩 Carne</span><span class="badge b-ambos">Almoço &amp; Jantar</span><span class="rtime">⏱ 35 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>180 g</strong> patinho em cubos pequenos</li>
+          <li>½ cebola picada</li>
+          <li>3 dentes de alho amassados</li>
+          <li>1 tomate maduro em cubos</li>
+          <li>Cebolinha e salsinha a gosto</li>
+          <li><strong>1 col. sopa</strong> azeite extravirgem (8 g)</li>
+          <li>Sal, pimenta, cúrcuma e cominho a gosto</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Aqueça o azeite em fogo alto. Sele a carne por 5 min, dourando bem. Reserve.</li>
+          <li>Na mesma panela, refogue cebola e alho por 3 min.</li>
+          <li>Adicione o tomate e cozinhe por 5 min até desfazer.</li>
+          <li>Volte a carne, adicione 100 ml de água, tampe e cozinhe em fogo médio-baixo por 15 min.</li>
+          <li>Finalize com cebolinha e salsinha picadas.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço:</strong> + 1 esc. arroz integral + 1 concha feijão + salada &nbsp;|&nbsp; <strong>Jantar:</strong> + 2 esc. batata doce + salada</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="almoco" data-prot="especial">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Bowl de Arroz Integral com Frango e Legumes Assados</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-espec">✨ Especial</span><span class="badge b-almoco">Almoço</span><span class="rtime">⏱ 40 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>80 g</strong> arroz integral cru (rende ~240 g cozido)</li>
+          <li><strong>130 g</strong> peito de frango grelhado em fatias</li>
+          <li>½ abobrinha em cubos</li>
+          <li>1 cenoura em rodelas</li>
+          <li>½ pimentão em cubos</li>
+          <li>Folhas verdes a gosto (base do bowl)</li>
+          <li><strong>Molho:</strong> 1 col. sopa azeite + suco de ½ limão + sal + orégano</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Cozinhe o arroz integral (1 xícara arroz : 2 xícaras água, ~30 min em fogo baixo).</li>
+          <li>Tempere os legumes com azeite, sal e pimenta. Asse a 200 °C por 20 min.</li>
+          <li>Grelhe o frango temperado com sal e alho. Fatie após descansar 3 min.</li>
+          <li>Monte o bowl: folhas → arroz → legumes → frango fatiado.</li>
+          <li>Regue com o molho de limão e azeite na hora de servir.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço completo</strong> — proteína + carbo + vegetal já incluídos na receita.</div>
+      <div class="rnote">💡 Ótimo para meal prep: prepare o arroz e os legumes no domingo e monte o bowl durante a semana em 5 min.</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="ambos" data-prot="frango">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Frango na Frigideira com Tomatinhos e Manjericão</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-frango">🍗 Frango</span><span class="badge b-ambos">Almoço &amp; Jantar</span><span class="rtime">⏱ 20 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>180 g</strong> peito de frango em tiras</li>
+          <li>10 tomatinhos cereja</li>
+          <li>3 dentes de alho laminados</li>
+          <li>15 folhas de manjericão fresco</li>
+          <li><strong>1 col. sopa</strong> azeite extravirgem (8 g)</li>
+          <li>Sal e pimenta a gosto</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Aqueça o azeite em fogo alto. Sele o frango em tiras por 5 min, virando a cada minuto.</li>
+          <li>Adicione o alho laminado e os tomatinhos. Tampe e cozinhe 5 min.</li>
+          <li>Abra a tampa e amasse levemente os tomatinhos com a colher para soltar o suco.</li>
+          <li>Finalize com manjericão fresco e sirva imediatamente.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço:</strong> + 1 esc. arroz integral + 1 concha feijão + salada &nbsp;|&nbsp; <strong>Jantar:</strong> + 2 esc. batata doce + salada</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="almoco" data-prot="frango">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Frango ao Curry Light com Leite de Coco</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-frango">🍗 Frango</span><span class="badge b-almoco">Almoço</span><span class="rtime">⏱ 30 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>180 g</strong> peito de frango em cubos</li>
+          <li>100 ml leite de coco light</li>
+          <li>½ cebola picada</li>
+          <li>2 dentes de alho amassados</li>
+          <li><strong>1 col. sopa</strong> curry em pó</li>
+          <li>½ col. chá cúrcuma</li>
+          <li><strong>1 col. sopa</strong> azeite extravirgem (8 g)</li>
+          <li>Sal e coentro (ou salsinha) a gosto</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Refogue cebola e alho no azeite até dourar (3 min).</li>
+          <li>Adicione o frango em cubos e sele por 5 min.</li>
+          <li>Junte o curry e a cúrcuma, mexa por 1 min para tostar os temperos.</li>
+          <li>Adicione o leite de coco e cozinhe em fogo médio por 12–15 min até o molho encorpar.</li>
+          <li>Acerte o sal e finalize com coentro ou salsinha picada.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço:</strong> + 1 esc. arroz integral + salada de folhas. Evitar à noite pelo leite de coco.</div>
+      <div class="rnote">💡 Varia o perfil de sabor da semana sem sair da dieta. O curry em pó é tempero livre.</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="ambos" data-prot="peixe">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Salmão Grelhado Simples</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-peixe">🐟 Peixe</span><span class="badge b-ambos">Almoço &amp; Jantar</span><span class="rtime">⏱ 15 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>150 g</strong> salmão (1 filé com pele)</li>
+          <li>Suco de ½ limão siciliano</li>
+          <li>Dill (endro) ou salsinha a gosto</li>
+          <li><strong>1 col. sopa</strong> azeite extravirgem (8 g)</li>
+          <li>Sal e pimenta a gosto</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Seque o filé com papel toalha. Tempere com sal, pimenta e dill.</li>
+          <li>Aqueça frigideira com azeite em fogo alto até começar a fumaçar levemente.</li>
+          <li>Grelhe com a pele para baixo por 4 min sem mexer — a pele fica crocante.</li>
+          <li>Vire e cozinhe mais 2 min. O interior pode ficar levemente rosado.</li>
+          <li>Sirva com suco de limão por cima.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço:</strong> + 1 esc. arroz integral + 1 concha feijão + salada &nbsp;|&nbsp; <strong>Jantar:</strong> + 2 esc. batata doce + salada</div>
+      <div class="rnote">💡 O salmão é rico em ômega-3 — importante para recuperação muscular. Prefira 2× na semana.</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="ambos" data-prot="carne">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Carne Moída com Abobrinha e Cenoura</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-carne">🥩 Carne</span><span class="badge b-ambos">Almoço &amp; Jantar</span><span class="rtime">⏱ 25 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>150 g</strong> carne moída de patinho (magra)</li>
+          <li>1 abobrinha italiana em cubos</li>
+          <li>½ cenoura ralada grosso</li>
+          <li>½ cebola picada</li>
+          <li>2 dentes de alho amassados</li>
+          <li><strong>1 col. sopa</strong> azeite extravirgem (8 g)</li>
+          <li>Sal, pimenta e cominho a gosto</li>
+          <li>Salsinha para finalizar</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Refogue cebola e alho no azeite por 2 min.</li>
+          <li>Adicione a carne moída e cozinhe até secar, quebrando com a colher.</li>
+          <li>Tempere com sal, pimenta e cominho.</li>
+          <li>Adicione cenoura e abobrinha. Refogue em fogo alto por 5 min.</li>
+          <li>Finalize com salsinha picada.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço:</strong> + 1 esc. arroz integral + 1 concha feijão + salada &nbsp;|&nbsp; <strong>Jantar:</strong> + 2 esc. batata doce + salada</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="ambos" data-prot="frango">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Peito de Frango Recheado com Ricota e Espinafre</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-frango">🍗 Frango</span><span class="badge b-ambos">Almoço &amp; Jantar</span><span class="rtime">⏱ 35 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>200 g</strong> peito de frango (1 peito grande)</li>
+          <li><strong>50 g</strong> ricota amassada</li>
+          <li>1 xícara espinafre picado</li>
+          <li>1 dente de alho amassado</li>
+          <li><strong>1 col. sopa</strong> azeite extravirgem (8 g)</li>
+          <li>Sal, pimenta e noz-moscada a gosto</li>
+          <li>Palito de dente para fechar</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Abra um bolso no peito de frango com uma faca, sem cortar até o fim.</li>
+          <li>Misture ricota, espinafre, alho, sal e noz-moscada. Recheie o frango e feche com palito.</li>
+          <li>Tempere a superfície com sal e pimenta.</li>
+          <li>Sele na frigideira com azeite por 3 min de cada lado até dourar.</li>
+          <li>Transfira para o forno (200 °C) e asse por 20 min. Retire o palito antes de servir.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço:</strong> + 1 esc. arroz integral + 1 concha feijão + salada &nbsp;|&nbsp; <strong>Jantar:</strong> + 2 esc. batata doce + salada</div>
+      <div class="rnote">💡 Pode rechear no domingo e refrigerar cru — assa na hora em 20 min. Ótimo para o meal prep da semana.</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="ambos" data-prot="peixe">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Tilápia Grelhada com Limão e Alcaparras</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-peixe">🐟 Peixe</span><span class="badge b-ambos">Almoço &amp; Jantar</span><span class="rtime">⏱ 15 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>200 g</strong> tilápia (2 filés)</li>
+          <li>Suco de 1 limão tahiti</li>
+          <li><strong>1 col. sopa</strong> alcaparras (opcional)</li>
+          <li>Salsinha fresca picada</li>
+          <li><strong>1 col. sopa</strong> azeite extravirgem (8 g)</li>
+          <li>Sal e pimenta a gosto</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Seque os filés com papel toalha. Tempere com sal e pimenta.</li>
+          <li>Aqueça o azeite em frigideira em fogo alto.</li>
+          <li>Grelhe os filés 3–4 min de cada lado sem mexer para formar crosta.</li>
+          <li>Desligue, regue com suco de limão e distribua as alcaparras.</li>
+          <li>Finalize com salsinha fresca picada.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço:</strong> + 1 esc. arroz integral + 1 concha feijão + salada &nbsp;|&nbsp; <strong>Jantar:</strong> + 2 esc. batata doce + salada</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="ambos" data-prot="carne">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Bife Acebolado Light</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-carne">🥩 Carne</span><span class="badge b-ambos">Almoço &amp; Jantar</span><span class="rtime">⏱ 20 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>180 g</strong> filé de alcatra ou patinho</li>
+          <li>2 cebolas médias em rodelas</li>
+          <li>3 dentes de alho amassados</li>
+          <li><strong>1 col. sopa</strong> azeite extravirgem (8 g)</li>
+          <li>Sal, pimenta e orégano a gosto</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Tempere o bife com alho, sal, pimenta e orégano. Deixe 10 min.</li>
+          <li>Aqueça a frigideira com metade do azeite em fogo alto. Sele o bife 3–4 min de cada lado. Reserve.</li>
+          <li>Na mesma frigideira, adicione o restante do azeite e refogue a cebola em fogo médio por 8–10 min, mexendo às vezes, até caramelizar.</li>
+          <li>Sirva a carne coberta com a cebola caramelizada.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço:</strong> + 1 esc. arroz integral + 1 concha feijão + salada &nbsp;|&nbsp; <strong>Jantar:</strong> + 2 esc. batata doce + salada</div>
+      <div class="rnote">💡 Sem manteiga — todo o sabor vem da cebola caramelizada e do azeite. Simples e eficiente.</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="jantar" data-prot="ovos">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Frittata de Legumes ao Forno</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-ovos">🥚 Ovos</span><span class="badge b-jantar">Jantar</span><span class="rtime">⏱ 30 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>4 ovos</strong> inteiros</li>
+          <li>½ abobrinha em rodelas finas</li>
+          <li>¼ cebola picada</li>
+          <li>½ pimentão em cubos</li>
+          <li>3 tomatinhos cereja cortados ao meio</li>
+          <li><strong>1 col. sopa</strong> azeite extravirgem (8 g)</li>
+          <li>Sal e ervas de Provença a gosto</li>
+          <li>Forma refratária pequena (15–18 cm)</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Refogue cebola, pimentão e abobrinha no azeite por 3 min. Tempere com sal.</li>
+          <li>Transfira os legumes para a forma refratária untada. Distribua os tomatinhos por cima.</li>
+          <li>Bata os ovos com sal e ervas de Provença. Despeje sobre os legumes.</li>
+          <li>Asse a 180 °C por 20–25 min até firmar no centro (teste com palito).</li>
+          <li>Deixe descansar 5 min antes de cortar.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Jantar:</strong> + salada de folhas à vontade. Sem necessidade de carboidrato extra.</div>
+      <div class="rnote">💡 Rende bem para 2 dias: prepare à noite e leve uma fatia no dia seguinte. Serve também no café da manhã.</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="almoco" data-prot="especial">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Salada de Quinua com Frango Grelhado</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-espec">✨ Especial</span><span class="badge b-almoco">Almoço</span><span class="rtime">⏱ 25 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>80 g</strong> quinua cozida (1:2 em água, 15 min)</li>
+          <li><strong>130 g</strong> peito de frango grelhado em cubos</li>
+          <li>½ pepino em cubos</li>
+          <li>10 tomatinhos cereja cortados ao meio</li>
+          <li>¼ cebola roxa picada</li>
+          <li>Salsinha e hortelã frescos</li>
+          <li><strong>Molho:</strong> 1 col. sopa azeite + suco de 1 limão + sal</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Cozinhe a quinua em água com uma pitada de sal por 15 min. Escorra e deixe esfriar.</li>
+          <li>Grelhe o frango temperado com sal e alho. Corte em cubos após descansar 3 min.</li>
+          <li>Misture quinua, pepino, tomatinhos, cebola roxa e ervas.</li>
+          <li>Adicione o frango e misture delicadamente.</li>
+          <li>Tempere com o molho de azeite e limão na hora de servir.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço completo</strong> — quinua substitui o arroz (ver tabela de substituições do plano).</div>
+      <div class="rnote">💡 Dura 3 dias na geladeira sem o molho. Ideal para meal prep — leve em pote e regue na hora.</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="jantar" data-prot="ovos">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Omelete Fitness com Legumes Variados</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-ovos">🥚 Ovos</span><span class="badge b-jantar">Jantar</span><span class="rtime">⏱ 15 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>3 ovos</strong> inteiros</li>
+          <li>½ pimentão (qualquer cor) em cubos</li>
+          <li>¼ cebola picada</li>
+          <li>1 xícara espinafre fresco</li>
+          <li><strong>1 col. chá</strong> azeite extravirgem</li>
+          <li>Sal, açafrão e orégano a gosto</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Bata os ovos com sal e açafrão até homogeneizar.</li>
+          <li>Em frigideira antiaderente com azeite, refogue cebola, pimentão e espinafre por 2 min.</li>
+          <li>Despeje os ovos batidos sobre os legumes. Cozinhe em fogo médio-baixo.</li>
+          <li>Quando as bordas firmarem e o centro ainda estiver levemente cremoso, dobre ao meio.</li>
+          <li>Desligue e sirva — o calor residual termina o cozimento.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Jantar:</strong> + 2 esc. batata doce assada + salada de folhas.</div>
+      <div class="rnote">💡 Varie os legumes a cada vez: brócolis, cenoura ralada, cogumelo, abobrinha — todos funcionam.</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="ambos" data-prot="frango">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Frango ao Limão Siciliano</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-frango">🍗 Frango</span><span class="badge b-ambos">Almoço &amp; Jantar</span><span class="rtime">⏱ 25 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>180 g</strong> peito de frango</li>
+          <li>Suco e raspas de 1 limão siciliano</li>
+          <li>2 dentes de alho amassados</li>
+          <li>Alecrim fresco a gosto</li>
+          <li><strong>1 col. sopa</strong> azeite extravirgem (8 g)</li>
+          <li>Sal e pimenta a gosto</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Misture raspas e suco de limão, alho, sal, alecrim e azeite. Marine o frango por 20 min.</li>
+          <li>Aqueça frigideira em fogo alto. Grelhe o frango 5–6 min de cada lado.</li>
+          <li>Nos últimos 2 min, regue com a marinada restante e deixe reduzir.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço:</strong> + arroz integral + feijão + salada &nbsp;|&nbsp; <strong>Jantar:</strong> + batata doce + salada</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="ambos" data-prot="frango">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Frango Xadrez Fitness</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-frango">🍗 Frango</span><span class="badge b-ambos">Almoço &amp; Jantar</span><span class="rtime">⏱ 25 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>180 g</strong> peito de frango em cubos</li>
+          <li>½ pimentão vermelho em cubos</li>
+          <li>½ pimentão amarelo em cubos</li>
+          <li><strong>2 col. sopa</strong> shoyu light (baixo sódio)</li>
+          <li>1 col. chá gengibre fresco ralado</li>
+          <li>2 dentes de alho amassados</li>
+          <li>Cebolinha fatiada para finalizar</li>
+          <li><strong>1 col. sopa</strong> azeite (8 g)</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Sele o frango no azeite quente por 5 min. Reserve.</li>
+          <li>Na mesma frigideira, refogue alho, gengibre e pimentões por 3 min em fogo alto.</li>
+          <li>Volte o frango, adicione o shoyu e mexa por 2 min até caramelizar levemente.</li>
+          <li>Finalize com cebolinha fatiada.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço:</strong> + arroz integral + salada &nbsp;|&nbsp; <strong>Jantar:</strong> + mais pimentão/legumes, reduzir ou omitir o carboidrato</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="ambos" data-prot="peixe">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Salmão no Papelote com Legumes</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-peixe">🐟 Peixe</span><span class="badge b-ambos">Almoço &amp; Jantar</span><span class="rtime">⏱ 25 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>150 g</strong> salmão (1 filé)</li>
+          <li>½ abobrinha em fatias finas</li>
+          <li>5 tomatinhos cereja</li>
+          <li>½ cebola em rodelas finas</li>
+          <li>Dill (endro) ou salsinha a gosto</li>
+          <li>Suco de ½ limão</li>
+          <li><strong>1 col. sopa</strong> azeite (8 g)</li>
+          <li>Sal e pimenta a gosto</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Sobre papel alumínio grande, monte cama de abobrinha e cebola.</li>
+          <li>Coloque o salmão por cima. Distribua os tomatinhos ao redor.</li>
+          <li>Regue com limão e azeite. Tempere com dill, sal e pimenta.</li>
+          <li>Feche bem o papelote (sem apertar o peixe) e asse a 200 °C por 18–20 min.</li>
+          <li>Abra com cuidado — o vapor queima. Sirva direto no papelote.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço:</strong> + arroz integral + feijão &nbsp;|&nbsp; <strong>Jantar:</strong> + batata doce assada</div>
+      <div class="rnote">💡 Limpeza zero: tudo cozinha no papelote. Lave só o tabuleiro.</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="ambos" data-prot="frango">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Hambúrguer Caseiro de Frango</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-frango">🍗 Frango</span><span class="badge b-ambos">Almoço &amp; Jantar</span><span class="rtime">⏱ 20 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>180 g</strong> peito de frango moído</li>
+          <li>¼ cebola ralada (espreme o excesso de líquido)</li>
+          <li>1 dente de alho amassado</li>
+          <li>Salsinha picada, sal, pimenta, cúrcuma</li>
+          <li>Azeite spray para grelhar</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Misture todos os ingredientes. Forme 1 hambúrguer de ~2 cm de espessura.</li>
+          <li>Refrigere por 15 min para firmar a forma.</li>
+          <li>Grelhe em frigideira levemente untada, 5–6 min de cada lado em fogo médio. Não pressione.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço:</strong> + arroz + feijão + salada &nbsp;|&nbsp; <strong>Jantar:</strong> + batata doce assada + salada</div>
+      <div class="rnote">💡 Pedir ao açougueiro para moer o peito na hora — fica mais suculento que o industrializado.</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="ambos" data-prot="carne">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Patinho Assado com Ervas Provençais</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-carne">🥩 Carne</span><span class="badge b-ambos">Almoço &amp; Jantar</span><span class="rtime">⏱ 40 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>200 g</strong> patinho em fatia grossa</li>
+          <li>Ervas de Provença (tomilho, alecrim, orégano, manjericão)</li>
+          <li>3 dentes de alho amassados</li>
+          <li>Suco de ½ limão</li>
+          <li><strong>1 col. sopa</strong> azeite (8 g)</li>
+          <li>Sal e pimenta a gosto</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Misture azeite, alho, ervas, limão, sal e pimenta. Esfregue bem na carne.</li>
+          <li>Marine por no mínimo 30 min (ou overnight na geladeira — muito melhor).</li>
+          <li>Asse a 200 °C por 25–30 min para ponto médio, ou grelhe 5–6 min de cada lado.</li>
+          <li>Deixe descansar 5 min antes de cortar.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço:</strong> + arroz integral + feijão + salada &nbsp;|&nbsp; <strong>Jantar:</strong> + batata doce + salada</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="ambos" data-prot="frango">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Frango Ensopado com Legumes</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-frango">🍗 Frango</span><span class="badge b-ambos">Almoço &amp; Jantar</span><span class="rtime">⏱ 35 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>180 g</strong> peito de frango em pedaços</li>
+          <li>1 cenoura em rodelas</li>
+          <li>½ abobrinha em cubos</li>
+          <li>½ cebola picada, 2 dentes de alho</li>
+          <li>200 ml caldo de legumes sem sal</li>
+          <li>Salsinha, sal, pimenta</li>
+          <li><strong>1 col. sopa</strong> azeite (8 g)</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Sele o frango no azeite por 3 min. Reserve.</li>
+          <li>Refogue cebola, alho e cenoura na mesma panela por 3 min.</li>
+          <li>Volte o frango, adicione o caldo e a abobrinha. Tampe.</li>
+          <li>Cozinhe em fogo médio-baixo por 20 min. Finalize com salsinha.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ Refeição quase completa. <strong>Almoço:</strong> + arroz integral &nbsp;|&nbsp; <strong>Jantar:</strong> servir só o ensopado com salada</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="ambos" data-prot="peixe">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Peixe ao Molho de Tomate Caseiro</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-peixe">🐟 Peixe</span><span class="badge b-ambos">Almoço &amp; Jantar</span><span class="rtime">⏱ 30 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>200 g</strong> tilápia ou peixe branco</li>
+          <li>3 tomates maduros picados (sem pele)</li>
+          <li>½ cebola, 2 dentes de alho</li>
+          <li>Manjericão fresco</li>
+          <li><strong>1 col. sopa</strong> azeite (8 g)</li>
+          <li>Sal e pimenta a gosto</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Refogue cebola e alho no azeite por 3 min. Adicione tomate picado.</li>
+          <li>Cozinhe o molho em fogo médio por 10 min, amassando os tomates.</li>
+          <li>Tempere com sal. Coloque o peixe no molho e tampe.</li>
+          <li>Cozinhe em fogo médio por 12–15 min até o peixe desmanchar facilmente.</li>
+          <li>Finalize com manjericão fresco.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Almoço:</strong> + arroz integral + feijão &nbsp;|&nbsp; <strong>Jantar:</strong> + batata doce + salada</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="jantar" data-prot="ovos">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Omelete Árabe com Espinafre e Ricota</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-ovos">🥚 Ovos</span><span class="badge b-jantar">Jantar</span><span class="rtime">⏱ 15 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>3 ovos</strong> inteiros</li>
+          <li><strong>50 g</strong> ricota amassada</li>
+          <li>2 xícaras espinafre picado</li>
+          <li>Cúrcuma, cominho, sal e pimenta</li>
+          <li><strong>1 col. chá</strong> azeite</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Misture ricota amassada com espinafre picado, sal e especiarias.</li>
+          <li>Bata os ovos e incorpore à mistura de ricota.</li>
+          <li>Cozinhe em frigideira antiaderente com azeite em fogo médio-baixo por 4 min.</li>
+          <li>Vire com cuidado e cozinhe mais 3 min do outro lado.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Jantar:</strong> + salada de folhas + batata doce assada (opcional)</div>
+      <div class="rnote">💡 A ricota + ovos entregam ~35 g de proteína — suficiente para o jantar sem whey.</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="jantar" data-prot="frango">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Frango Desfiado com Abobrinha Refogada</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-frango">🍗 Frango</span><span class="badge b-jantar">Jantar</span><span class="rtime">⏱ 20 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>180 g</strong> peito de frango cozido e desfiado</li>
+          <li>1 abobrinha italiana em meias-luas</li>
+          <li>3 dentes de alho laminados</li>
+          <li>Salsinha, sal e pimenta</li>
+          <li><strong>1 col. sopa</strong> azeite (8 g)</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Refogue alho laminado no azeite até dourar levemente.</li>
+          <li>Adicione a abobrinha e refogue em fogo alto por 4–5 min até dourar nas bordas.</li>
+          <li>Junte o frango desfiado, mexa e aqueça por 2 min. Acerte o sal.</li>
+          <li>Finalize com salsinha fresca picada.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ <strong>Jantar:</strong> + salada de folhas. Prato leve — adicionar batata doce se o gasto calórico do dia foi alto.</div>
+    </div>
+  </article>
+
+  <article class="rcard" data-cat="almoco" data-prot="especial">
+    <div class="rhead" onclick="toggle(this.closest('.rcard'))">
+      <div class="rh-main"><span class="rtitle">Ensopado de Grão-de-Bico com Legumes</span><span class="rchev">▼</span></div>
+      <div class="rbadges"><span class="badge b-espec">✨ Especial</span><span class="badge b-almoco">Almoço</span><span class="rtime">⏱ 25 min</span></div>
+    </div>
+    <div class="rbody">
+      <div class="rcols">
+        <div class="ring"><h4>Ingredientes (1 porção)</h4><ul>
+          <li><strong>80 g</strong> grão-de-bico cozido (1 concha)</li>
+          <li>½ abobrinha em cubos</li>
+          <li>½ cenoura em rodelas</li>
+          <li>1 tomate maduro picado</li>
+          <li>½ cebola, 2 dentes de alho</li>
+          <li>Cúrcuma, cominho, sal, pimenta</li>
+          <li><strong>1 col. sopa</strong> azeite (8 g)</li>
+          <li>Salsinha e suco de ½ limão para finalizar</li>
+        </ul></div>
+        <div class="rprep"><h4>Modo de preparo</h4><ol>
+          <li>Refogue cebola, alho e cenoura no azeite por 3 min.</li>
+          <li>Adicione tomate, abobrinha, cúrcuma e cominho. Refogue 3 min.</li>
+          <li>Adicione o grão-de-bico e 200 ml de água. Cozinhe por 15 min em fogo médio.</li>
+          <li>Finalize com salsinha e um fio de limão. Acerte o sal.</li>
+        </ol></div>
+      </div>
+      <div class="rserve">🍽️ Refeição vegetariana completa. <strong>Almoço:</strong> + 1 esc. arroz integral (opcional) &nbsp;|&nbsp; O grão-de-bico já fornece proteína + carbo.</div>
+      <div class="rnote">💡 Ótima opção para variar sem carne. Grão-de-bico de lata (sem sal) funciona perfeitamente.</div>
+    </div>
+  </article>
+
+</div>
+
+<script>
+  let catFilter = 'all';
+  let protFilter = 'all';
+  let searchTerm = '';
+
+  function toggle(card) { card.classList.toggle('open'); }
+
+  function applyFilters() {
+    const cards = document.querySelectorAll('.rcard');
+    let n = 0;
+    cards.forEach(card => {
+      const cat  = card.dataset.cat;
+      const prot = card.dataset.prot;
+      const title = card.querySelector('.rtitle').textContent.toLowerCase();
+      const catOk  = catFilter  === 'all' || cat  === catFilter  || cat  === 'ambos';
+      const protOk = protFilter === 'all' || prot === protFilter;
+      const srchOk = !searchTerm || title.includes(searchTerm);
+      const show = catOk && protOk && srchOk;
+      card.style.display = show ? '' : 'none';
+      if (show) n++;
+    });
+    document.getElementById('count').textContent = n + (n === 1 ? ' receita' : ' receitas');
+  }
+
+  function setCat(val, el) {
+    catFilter = val;
+    document.querySelectorAll('.filter-group:first-child .fb').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    applyFilters();
+  }
+
+  function setProt(val, el) {
+    protFilter = val;
+    document.querySelectorAll('.filter-group:last-child .fb').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    applyFilters();
+  }
+
+  function setSearch(val) {
+    searchTerm = val.trim().toLowerCase();
+    applyFilters();
+  }
+
+  // Auto-filtrar por hash (#almoco ou #jantar)
+  const hash = window.location.hash;
+  if (hash === '#almoco') setCat('almoco', document.querySelector('.cat-almoco'));
+  else if (hash === '#jantar') setCat('jantar', document.querySelector('.cat-jantar'));
+</script>
+</body>
+</html>
