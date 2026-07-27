@@ -8,7 +8,7 @@ window.RECIPES_DATA = {
       "timeMin": 25,
       "ingredients": [
         "<strong>180 g</strong> peito de frango cru",
-        "Suco de ½ limão tahiti",
+        "Suco de ½ limão tahiti (≈15 ml)",
         "<strong>1 col. sopa</strong> azeite extravirgem (8 g)",
         "2 dentes de alho amassados",
         "Sal, pimenta-do-reino, orégano e alecrim a gosto"
@@ -32,7 +32,7 @@ window.RECIPES_DATA = {
         "<strong>200 g</strong> tilápia (2 filés)",
         "<strong>3 col. sopa</strong> farelo de aveia",
         "Salsinha, cebolinha e orégano picados",
-        "Raspas de ½ limão siciliano",
+        "Raspas de ½ limão siciliano (≈1 g)",
         "<strong>1 col. sopa</strong> azeite extravirgem (8 g)",
         "Sal e pimenta a gosto"
       ],
@@ -53,7 +53,7 @@ window.RECIPES_DATA = {
       "timeMin": 30,
       "ingredients": [
         "<strong>180 g</strong> peito de frango em cubinhos",
-        "½ cebola picada",
+        "½ cebola picada (50 g)",
         "2 dentes de alho amassados",
         "<strong>3 col. sopa</strong> iogurte natural integral (substitui o creme de leite)",
         "<strong>1 col. sopa</strong> extrato de tomate (sem açúcar)",
@@ -78,9 +78,9 @@ window.RECIPES_DATA = {
       "timeMin": 35,
       "ingredients": [
         "<strong>180 g</strong> patinho em cubos pequenos",
-        "½ cebola picada",
+        "½ cebola picada (50 g)",
         "3 dentes de alho amassados",
-        "1 tomate maduro em cubos",
+        "1 tomate maduro em cubos (160 g)",
         "Cebolinha e salsinha a gosto",
         "<strong>1 col. sopa</strong> azeite extravirgem (8 g)",
         "Sal, pimenta, cúrcuma e cominho a gosto"
@@ -104,11 +104,11 @@ window.RECIPES_DATA = {
       "ingredients": [
         "<strong>80 g</strong> arroz integral cru (rende ~240 g cozido)",
         "<strong>130 g</strong> peito de frango grelhado em fatias",
-        "½ abobrinha em cubos",
+        "½ abobrinha em cubos (100 g)",
         "1 cenoura em rodelas",
-        "½ pimentão em cubos",
+        "½ pimentão em cubos (60 g)",
         "Folhas verdes a gosto (base do bowl)",
-        "<strong>Molho:</strong> 1 col. sopa azeite + suco de ½ limão + sal + orégano"
+        "<strong>Molho:</strong> 1 col. sopa azeite + suco de ½ limão (≈15 ml) + sal + orégano"
       ],
       "steps": [
         "Cozinhe o arroz integral (1 xícara arroz : 2 xícaras água, ~30 min em fogo baixo).",
@@ -128,7 +128,7 @@ window.RECIPES_DATA = {
       "timeMin": 20,
       "ingredients": [
         "<strong>180 g</strong> peito de frango em tiras",
-        "10 tomatinhos cereja",
+        "10 tomatinhos cereja (100 g)",
         "3 dentes de alho laminados",
         "15 folhas de manjericão fresco",
         "<strong>1 col. sopa</strong> azeite extravirgem (8 g)",
@@ -152,7 +152,7 @@ window.RECIPES_DATA = {
       "ingredients": [
         "<strong>180 g</strong> peito de frango em cubos",
         "100 ml leite de coco light",
-        "½ cebola picada",
+        "½ cebola picada (50 g)",
         "2 dentes de alho amassados",
         "<strong>1 col. sopa</strong> curry em pó",
         "½ col. chá cúrcuma",
@@ -177,7 +177,7 @@ window.RECIPES_DATA = {
       "timeMin": 15,
       "ingredients": [
         "<strong>150 g</strong> salmão (1 filé com pele)",
-        "Suco de ½ limão siciliano",
+        "Suco de ½ limão siciliano (≈15 ml)",
         "Dill (endro) ou salsinha a gosto",
         "<strong>1 col. sopa</strong> azeite extravirgem (8 g)",
         "Sal e pimenta a gosto"
@@ -200,9 +200,9 @@ window.RECIPES_DATA = {
       "timeMin": 25,
       "ingredients": [
         "<strong>150 g</strong> carne moída de patinho (magra)",
-        "1 abobrinha italiana em cubos",
-        "½ cenoura ralada grosso",
-        "½ cebola picada",
+        "1 abobrinha italiana em cubos (200 g)",
+        "½ cenoura ralada grosso (50 g)",
+        "½ cebola picada (50 g)",
         "2 dentes de alho amassados",
         "<strong>1 col. sopa</strong> azeite extravirgem (8 g)",
         "Sal, pimenta e cominho a gosto",
@@ -297,10 +297,10 @@ window.RECIPES_DATA = {
       "timeMin": 30,
       "ingredients": [
         "<strong>4 ovos</strong> inteiros",
-        "½ abobrinha em rodelas finas",
-        "¼ cebola picada",
-        "½ pimentão em cubos",
-        "3 tomatinhos cereja cortados ao meio",
+        "½ abobrinha em rodelas finas (100 g)",
+        "¼ cebola picada (25 g)",
+        "½ pimentão em cubos (60 g)",
+        "3 tomatinhos cereja cortados ao meio (30 g)",
         "<strong>1 col. sopa</strong> azeite extravirgem (8 g)",
         "Sal e ervas de Provença a gosto",
         "Forma refratária pequena (15–18 cm)"
@@ -324,9 +324,9 @@ window.RECIPES_DATA = {
       "ingredients": [
         "<strong>80 g</strong> quinua cozida (1:2 em água, 15 min)",
         "<strong>130 g</strong> peito de frango grelhado em cubos",
-        "½ pepino em cubos",
-        "10 tomatinhos cereja cortados ao meio",
-        "¼ cebola roxa picada",
+        "½ pepino em cubos (80 g)",
+        "10 tomatinhos cereja cortados ao meio (100 g)",
+        "¼ cebola roxa picada (25 g)",
         "Salsinha e hortelã frescos",
         "<strong>Molho:</strong> 1 col. sopa azeite + suco de 1 limão + sal"
       ],
@@ -348,8 +348,8 @@ window.RECIPES_DATA = {
       "timeMin": 15,
       "ingredients": [
         "<strong>3 ovos</strong> inteiros",
-        "½ pimentão (qualquer cor) em cubos",
-        "¼ cebola picada",
+        "½ pimentão (qualquer cor) em cubos (60 g)",
+        "¼ cebola picada (25 g)",
         "1 xícara espinafre fresco",
         "<strong>1 col. chá</strong> azeite extravirgem",
         "Sal, açafrão e orégano a gosto"
@@ -394,8 +394,8 @@ window.RECIPES_DATA = {
       "timeMin": 25,
       "ingredients": [
         "<strong>180 g</strong> peito de frango em cubos",
-        "½ pimentão vermelho em cubos",
-        "½ pimentão amarelo em cubos",
+        "½ pimentão vermelho em cubos (60 g)",
+        "½ pimentão amarelo em cubos (60 g)",
         "<strong>2 col. sopa</strong> shoyu light (baixo sódio)",
         "1 col. chá gengibre fresco ralado",
         "2 dentes de alho amassados",
@@ -419,11 +419,11 @@ window.RECIPES_DATA = {
       "timeMin": 25,
       "ingredients": [
         "<strong>150 g</strong> salmão (1 filé)",
-        "½ abobrinha em fatias finas",
-        "5 tomatinhos cereja",
-        "½ cebola em rodelas finas",
+        "½ abobrinha em fatias finas (100 g)",
+        "5 tomatinhos cereja (50 g)",
+        "½ cebola em rodelas finas (50 g)",
         "Dill (endro) ou salsinha a gosto",
-        "Suco de ½ limão",
+        "Suco de ½ limão (≈15 ml)",
         "<strong>1 col. sopa</strong> azeite (8 g)",
         "Sal e pimenta a gosto"
       ],
@@ -445,7 +445,7 @@ window.RECIPES_DATA = {
       "timeMin": 20,
       "ingredients": [
         "<strong>180 g</strong> peito de frango moído",
-        "¼ cebola ralada (espreme o excesso de líquido)",
+        "¼ cebola ralada (25 g; esprema o excesso de líquido)",
         "1 dente de alho amassado",
         "Salsinha picada, sal, pimenta, cúrcuma",
         "Azeite spray para grelhar"
@@ -468,7 +468,7 @@ window.RECIPES_DATA = {
         "<strong>200 g</strong> patinho em fatia grossa",
         "Ervas de Provença (tomilho, alecrim, orégano, manjericão)",
         "3 dentes de alho amassados",
-        "Suco de ½ limão",
+        "Suco de ½ limão (≈15 ml)",
         "<strong>1 col. sopa</strong> azeite (8 g)",
         "Sal e pimenta a gosto"
       ],
@@ -490,8 +490,8 @@ window.RECIPES_DATA = {
       "ingredients": [
         "<strong>180 g</strong> peito de frango em pedaços",
         "1 cenoura em rodelas",
-        "½ abobrinha em cubos",
-        "½ cebola picada, 2 dentes de alho",
+        "½ abobrinha em cubos (100 g)",
+        "½ cebola picada (50 g), 2 dentes de alho",
         "200 ml caldo de legumes sem sal",
         "Salsinha, sal, pimenta",
         "<strong>1 col. sopa</strong> azeite (8 g)"
@@ -514,7 +514,7 @@ window.RECIPES_DATA = {
       "ingredients": [
         "<strong>200 g</strong> tilápia ou peixe branco",
         "3 tomates maduros picados (sem pele)",
-        "½ cebola, 2 dentes de alho",
+        "½ cebola (50 g), 2 dentes de alho",
         "Manjericão fresco",
         "<strong>1 col. sopa</strong> azeite (8 g)",
         "Sal e pimenta a gosto"
@@ -559,7 +559,7 @@ window.RECIPES_DATA = {
       "timeMin": 20,
       "ingredients": [
         "<strong>180 g</strong> peito de frango cozido e desfiado",
-        "1 abobrinha italiana em meias-luas",
+        "1 abobrinha italiana em meias-luas (200 g)",
         "3 dentes de alho laminados",
         "Salsinha, sal e pimenta",
         "<strong>1 col. sopa</strong> azeite (8 g)"
@@ -581,13 +581,13 @@ window.RECIPES_DATA = {
       "timeMin": 25,
       "ingredients": [
         "<strong>80 g</strong> grão-de-bico cozido (1 concha)",
-        "½ abobrinha em cubos",
-        "½ cenoura em rodelas",
-        "1 tomate maduro picado",
-        "½ cebola, 2 dentes de alho",
+        "½ abobrinha em cubos (100 g)",
+        "½ cenoura em rodelas (50 g)",
+        "1 tomate maduro picado (160 g)",
+        "½ cebola (50 g), 2 dentes de alho",
         "Cúrcuma, cominho, sal, pimenta",
         "<strong>1 col. sopa</strong> azeite (8 g)",
-        "Salsinha e suco de ½ limão para finalizar"
+        "Salsinha e suco de ½ limão para finalizar (≈15 ml)"
       ],
       "steps": [
         "Refogue cebola, alho e cenoura no azeite por 3 min.",
@@ -653,8 +653,8 @@ window.RECIPES_DATA = {
       "timeMin": 15,
       "ingredients": [
         "½ lata atum em água, escorrido (~80 g)",
-        "½ cebola em rodelas",
-        "½ pimentão (mix de cores) em tiras",
+        "½ cebola em rodelas (50 g)",
+        "½ pimentão (mix de cores) em tiras (60 g)",
         "2 dentes de alho amassados",
         "Salsinha, sal e pimenta",
         "<strong>1 col. sopa</strong> azeite (8 g)"
@@ -698,7 +698,7 @@ window.RECIPES_DATA = {
       "timeMin": 25,
       "ingredients": [
         "<strong>180 g</strong> carne moída de patinho",
-        "½ cebola ralada (espremer o excesso de líquido)",
+        "½ cebola ralada (50 g; esprema o excesso de líquido)",
         "1 dente de alho amassado",
         "Salsinha, sal, pimenta e cominho a gosto",
         "Azeite spray para grelhar"
@@ -719,9 +719,9 @@ window.RECIPES_DATA = {
       "timeMin": 30,
       "ingredients": [
         "<strong>150 g</strong> carne moída magra (patinho)",
-        "½ berinjela em cubos",
-        "2 tomates maduros picados",
-        "½ cebola, 2 dentes de alho",
+        "½ berinjela em cubos (150 g)",
+        "2 tomates maduros picados (320 g)",
+        "½ cebola (50 g), 2 dentes de alho",
         "Orégano, sal e pimenta",
         "<strong>1 col. sopa</strong> azeite (8 g)"
       ],
@@ -814,9 +814,9 @@ window.RECIPES_DATA = {
         "<strong>35 g</strong> tapioca seca (substitui o pão — ver tabela de substituições)",
         "<strong>130 g</strong> frango grelhado desfiado",
         "Folhas de alface e rúcula a gosto",
-        "3 tomatinhos cereja cortados ao meio",
-        "½ pepino em fatias",
-        "<strong>Molho:</strong> 2 col. sopa iogurte natural + suco de ½ limão + sal + cebolinha"
+        "3 tomatinhos cereja cortados ao meio (30 g)",
+        "½ pepino em fatias (80 g)",
+        "<strong>Molho:</strong> 2 col. sopa iogurte natural + suco de ½ limão (≈15 ml) + sal + cebolinha"
       ],
       "steps": [
         "Prepare a tapioca em frigideira seca por 2–3 min de cada lado até firmar e soltar.",
@@ -837,7 +837,7 @@ window.RECIPES_DATA = {
         "<strong>200 g</strong> sobrecoxa desossada ou peito",
         "4 dentes de alho amassados",
         "Alecrim e tomilho frescos",
-        "Suco de ½ limão",
+        "Suco de ½ limão (≈15 ml)",
         "<strong>1 col. sopa</strong> azeite (8 g)",
         "Sal e pimenta a gosto"
       ],
@@ -879,9 +879,9 @@ window.RECIPES_DATA = {
       "timeMin": 30,
       "ingredients": [
         "<strong>180 g</strong> peito de frango em cubos de 3 cm",
-        "½ pimentão vermelho em quadrados",
-        "½ pimentão verde em quadrados",
-        "½ cebola em pétalas",
+        "½ pimentão vermelho em quadrados (60 g)",
+        "½ pimentão verde em quadrados (60 g)",
+        "½ cebola em pétalas (50 g)",
         "Sal, pimenta, orégano, cominho",
         "<strong>1 col. sopa</strong> azeite (8 g) para a marinada",
         "Palitos de espeto (deixar 30 min na água)"
@@ -904,7 +904,7 @@ window.RECIPES_DATA = {
         "<strong>200 g</strong> sobrecoxa desossada ou peito",
         "1 cenoura em rodelas",
         "<strong>120 g</strong> batata doce em cubos",
-        "½ cebola, 3 dentes de alho",
+        "½ cebola (50 g), 3 dentes de alho",
         "Tomilho, sal e pimenta",
         "<strong>1 col. sopa</strong> azeite (8 g)"
       ],
@@ -927,7 +927,7 @@ window.RECIPES_DATA = {
         "<strong>200 g</strong> tilápia (2 filés)",
         "Mix de ervas: salsinha, cebolinha, alecrim, tomilho",
         "2 dentes de alho amassados",
-        "Suco de ½ limão",
+        "Suco de ½ limão (≈15 ml)",
         "<strong>1 col. sopa</strong> azeite (8 g)",
         "Sal a gosto"
       ],
@@ -948,11 +948,11 @@ window.RECIPES_DATA = {
       "timeMin": 30,
       "ingredients": [
         "<strong>200 g</strong> peixe branco (tilápia, corvina ou linguado)",
-        "½ abobrinha em fatias",
-        "5 tomatinhos cereja",
-        "¼ cebola roxa em rodelas",
+        "½ abobrinha em fatias (100 g)",
+        "5 tomatinhos cereja (50 g)",
+        "¼ cebola roxa em rodelas (25 g)",
         "5 azeitonas pretas fatiadas",
-        "Orégano, suco de ½ limão, sal",
+        "Orégano, suco de ½ limão (≈15 ml), sal",
         "<strong>1 col. sopa</strong> azeite (8 g)"
       ],
       "steps": [
@@ -994,7 +994,7 @@ window.RECIPES_DATA = {
       "timeMin": null,
       "ingredients": [
         "<strong>150 g</strong> bacalhau dessalgado (molho de 24h, trocando água 3×)",
-        "½ cebola em rodelas",
+        "½ cebola em rodelas (50 g)",
         "1 pimentão vermelho em tiras",
         "4 azeitonas pretas fatiadas",
         "Salsinha, pimenta",
@@ -1018,7 +1018,7 @@ window.RECIPES_DATA = {
       "ingredients": [
         "<strong>150 g</strong> frango grelhado desfiado",
         "1 concha feijão preto cozido (80 g)",
-        "½ ovo cozido picado",
+        "½ ovo cozido picado (25 g)",
         "2 folhas de couve em tiras finas",
         "2 dentes de alho, sal, pimenta",
         "<strong>1 col. sopa</strong> azeite (8 g)"
@@ -1039,10 +1039,10 @@ window.RECIPES_DATA = {
       "title": "Berinjela Recheada com Carne Moída",
       "timeMin": 45,
       "ingredients": [
-        "1 berinjela grande cortada ao meio (longitudinal)",
+        "1 berinjela grande cortada ao meio longitudinal (≈400 g inteira / 200 g por metade)",
         "<strong>130 g</strong> carne moída magra (patinho)",
-        "1 tomate maduro picado",
-        "½ cebola, 2 dentes de alho, salsinha",
+        "1 tomate maduro picado (160 g)",
+        "½ cebola (50 g), 2 dentes de alho, salsinha",
         "Sal, pimenta, orégano",
         "<strong>1 col. sopa</strong> azeite (8 g)"
       ],
@@ -1064,7 +1064,7 @@ window.RECIPES_DATA = {
       "ingredients": [
         "<strong>200 g</strong> coxão mole ou patinho em pedaço",
         "1 cenoura em rodelas grossas",
-        "½ cebola, 3 dentes de alho",
+        "½ cebola (50 g), 3 dentes de alho",
         "Tomilho, sal e pimenta",
         "300 ml caldo de carne sem sal",
         "<strong>1 col. sopa</strong> azeite (8 g)"
@@ -1134,7 +1134,7 @@ window.RECIPES_DATA = {
       "ingredients": [
         "<strong>200 g</strong> peixe branco (tilápia, corvina ou linguado)",
         "1 cebola grande em rodelas",
-        "2 tomates em rodelas",
+        "2 tomates em rodelas (320 g)",
         "3 dentes de alho em lâminas",
         "Orégano, suco de 1 limão, sal",
         "<strong>1 col. sopa</strong> azeite (8 g)"
@@ -1157,8 +1157,8 @@ window.RECIPES_DATA = {
       "timeMin": 10,
       "ingredients": [
         "<strong>3 ovos</strong> inteiros",
-        "½ tomate em cubos pequenos",
-        "¼ cebola picada fina",
+        "½ tomate em cubos pequenos (80 g)",
+        "¼ cebola picada fina (25 g)",
         "Açafrão, salsinha, cebolinha, sal e pimenta",
         "<strong>1 col. chá</strong> azeite"
       ],
@@ -1204,7 +1204,7 @@ window.RECIPES_DATA = {
         "1 col. sopa alecrim fresco picado",
         "1 col. sopa tomilho fresco",
         "½ col. sopa orégano",
-        "Raspas de ½ limão siciliano",
+        "Raspas de ½ limão siciliano (≈1 g)",
         "2 dentes de alho amassados",
         "<strong>1 col. sopa</strong> azeite (8 g)",
         "Sal e pimenta a gosto"
