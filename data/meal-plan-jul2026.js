@@ -1,11 +1,6 @@
 window.MEAL_PLAN = {
   "infoStats": [
     {
-      "lbl": "Peso Atual",
-      "val": "125 kg",
-      "valSub": "Meta: retomada do emagrecimento"
-    },
-    {
       "lbl": "Academia",
       "val": "Seg / Qua / Sex",
       "valSub": "Treino às 6h–7h da manhã"
