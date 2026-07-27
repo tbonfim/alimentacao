@@ -102,7 +102,7 @@ window.MEAL_PLAN = {
       },
       "meals": [
         {
-          "title": "Desjejum<span class=\"timing\">9:00 – 10:00</span>",
+          "title": "Desjejum",
           "theme": "default",
           "badge": null,
           "timing": "9:00 – 10:00",
@@ -137,7 +137,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Almoço</span>",
+          "title": "Almoço",
           "theme": "default",
           "badge": null,
           "timing": "12:30 – 13:30",
@@ -177,7 +177,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Lanche da Tarde<span class=\"timing\">16:00 – 16:30</span>",
+          "title": "Lanche da Tarde",
           "theme": "default",
           "badge": null,
           "timing": "16:00 – 16:30",
@@ -207,7 +207,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Jantar</span>",
+          "title": "Jantar",
           "theme": "default",
           "badge": null,
           "timing": "20:30 – 21:30",
@@ -299,7 +299,7 @@ window.MEAL_PLAN = {
       },
       "meals": [
         {
-          "title": "Pré-Academia — antes de sair de casa<span class=\"timing\">5:30</span>",
+          "title": "Pré-Academia — antes de sair de casa",
           "theme": "default",
           "badge": null,
           "timing": "5:30",
@@ -319,7 +319,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Desjejum + Pós-Academia <span class=\"timing\">7:00 – 8:00</span>",
+          "title": "Desjejum + Pós-Academia",
           "theme": "escuro",
           "badge": "refeição fundida",
           "timing": "7:00 – 8:00",
@@ -359,7 +359,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Almoço — carbo reforçado para o futebol</span>",
+          "title": "Almoço — carbo reforçado para o futebol",
           "theme": "default",
           "badge": null,
           "timing": "12:30 – 13:30",
@@ -399,7 +399,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Lanche — 4h antes do futebol<span class=\"timing\">16:00 – 16:30</span>",
+          "title": "Lanche — 4h antes do futebol",
           "theme": "default",
           "badge": null,
           "timing": "16:00 – 16:30",
@@ -429,7 +429,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Top-up pré-futebol — só banana<span class=\"timing\">19:00 – 19:15</span>",
+          "title": "Top-up pré-futebol — só banana",
           "theme": "laranja",
           "badge": null,
           "timing": "19:00 – 19:15",
@@ -449,7 +449,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Durante o Futebol<span class=\"timing\">20:00 – 22:00</span>",
+          "title": "Durante o Futebol",
           "theme": "azul",
           "badge": null,
           "timing": "20:00 – 22:00",
@@ -469,7 +469,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Pós-Jogo — recuperação leve <span class=\"timing\">22:00 – 22:45</span>",
+          "title": "Pós-Jogo — recuperação leve",
           "theme": "escuro",
           "badge": "sem carbo pesado",
           "timing": "22:00 – 22:45",
@@ -499,7 +499,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Antes de dormir<span class=\"timing\">22:45 – 23:00</span>",
+          "title": "Antes de dormir",
           "theme": "default",
           "badge": null,
           "timing": "22:45 – 23:00",
@@ -561,7 +561,7 @@ window.MEAL_PLAN = {
       },
       "meals": [
         {
-          "title": "Pré-Cardio — antes de sair<span class=\"timing\">Conforme horário do treino</span>",
+          "title": "Pré-Cardio — antes de sair",
           "theme": "default",
           "badge": null,
           "timing": "Conforme horário do treino",
@@ -581,7 +581,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Desjejum / Pós-Cardio<span class=\"timing\">Logo após o treino</span>",
+          "title": "Desjejum / Pós-Cardio",
           "theme": "default",
           "badge": null,
           "timing": "Logo após o treino",
@@ -616,7 +616,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Almoço</span>",
+          "title": "Almoço",
           "theme": "default",
           "badge": null,
           "timing": "12:30 – 13:30",
@@ -656,7 +656,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Lanche da Tarde<span class=\"timing\">16:00 – 16:30</span>",
+          "title": "Lanche da Tarde",
           "theme": "default",
           "badge": null,
           "timing": "16:00 – 16:30",
@@ -681,7 +681,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Jantar</span>",
+          "title": "Jantar",
           "theme": "default",
           "badge": null,
           "timing": "20:30 – 21:30",
@@ -763,7 +763,7 @@ window.MEAL_PLAN = {
       },
       "meals": [
         {
-          "title": "Pré-Academia — antes de sair de casa<span class=\"timing\">5:30</span>",
+          "title": "Pré-Academia — antes de sair de casa",
           "theme": "default",
           "badge": null,
           "timing": "5:30",
@@ -783,7 +783,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Desjejum + Pós-Academia <span class=\"timing\">7:00 – 8:00</span>",
+          "title": "Desjejum + Pós-Academia",
           "theme": "escuro",
           "badge": "refeição fundida",
           "timing": "7:00 – 8:00",
@@ -823,7 +823,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Almoço</span>",
+          "title": "Almoço",
           "theme": "default",
           "badge": null,
           "timing": "12:30 – 13:30",
@@ -863,7 +863,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Lanche da Tarde<span class=\"timing\">16:00 – 17:00 | opcional</span>",
+          "title": "Lanche da Tarde",
           "theme": "default",
           "badge": null,
           "timing": "16:00 – 17:00 | opcional",
@@ -888,7 +888,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Jantar</span>",
+          "title": "Jantar",
           "theme": "default",
           "badge": null,
           "timing": "20:30 – 21:30",
@@ -970,7 +970,7 @@ window.MEAL_PLAN = {
       },
       "meals": [
         {
-          "title": "Desjejum<span class=\"timing\">8:30 – 9:30</span>",
+          "title": "Desjejum",
           "theme": "default",
           "badge": null,
           "timing": "8:30 – 9:30",
@@ -1005,7 +1005,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Almoço — carbo reforçado para o futebol</span>",
+          "title": "Almoço — carbo reforçado para o futebol",
           "theme": "default",
           "badge": null,
           "timing": "12:30 – 13:30",
@@ -1045,7 +1045,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Lanche — 4h antes do jogo<span class=\"timing\">16:00 – 16:30</span>",
+          "title": "Lanche — 4h antes do jogo",
           "theme": "default",
           "badge": null,
           "timing": "16:00 – 16:30",
@@ -1075,7 +1075,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Top-up pré-futebol — só banana<span class=\"timing\">19:00 – 19:15</span>",
+          "title": "Top-up pré-futebol — só banana",
           "theme": "laranja",
           "badge": null,
           "timing": "19:00 – 19:15",
@@ -1095,7 +1095,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Durante o Futebol<span class=\"timing\">20:00 – 22:00</span>",
+          "title": "Durante o Futebol",
           "theme": "azul",
           "badge": null,
           "timing": "20:00 – 22:00",
@@ -1115,7 +1115,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Pós-Jogo — recuperação leve <span class=\"timing\">22:00 – 22:45</span>",
+          "title": "Pós-Jogo — recuperação leve",
           "theme": "escuro",
           "badge": "sem carbo pesado",
           "timing": "22:00 – 22:45",
@@ -1145,7 +1145,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Antes de dormir<span class=\"timing\">22:45 – 23:00</span>",
+          "title": "Antes de dormir",
           "theme": "default",
           "badge": null,
           "timing": "22:45 – 23:00",
@@ -1207,7 +1207,7 @@ window.MEAL_PLAN = {
       },
       "meals": [
         {
-          "title": "Pré-Academia — antes de sair de casa<span class=\"timing\">5:30</span>",
+          "title": "Pré-Academia — antes de sair de casa",
           "theme": "default",
           "badge": null,
           "timing": "5:30",
@@ -1227,7 +1227,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Desjejum + Pós-Academia <span class=\"timing\">7:00 – 8:00</span>",
+          "title": "Desjejum + Pós-Academia",
           "theme": "escuro",
           "badge": "refeição fundida",
           "timing": "7:00 – 8:00",
@@ -1267,7 +1267,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Almoço</span>",
+          "title": "Almoço",
           "theme": "default",
           "badge": null,
           "timing": "12:30 – 13:30",
@@ -1307,7 +1307,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Lanche da Tarde<span class=\"timing\">16:00 – 17:00 | opcional</span>",
+          "title": "Lanche da Tarde",
           "theme": "default",
           "badge": null,
           "timing": "16:00 – 17:00 | opcional",
@@ -1332,7 +1332,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Jantar</span>",
+          "title": "Jantar",
           "theme": "default",
           "badge": null,
           "timing": "20:30 – 21:30",
@@ -1414,7 +1414,7 @@ window.MEAL_PLAN = {
       },
       "meals": [
         {
-          "title": "Pré-Cardio<span class=\"timing\">Conforme horário do treino</span>",
+          "title": "Pré-Cardio",
           "theme": "default",
           "badge": null,
           "timing": "Conforme horário do treino",
@@ -1434,7 +1434,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Desjejum / Pós-Cardio<span class=\"timing\">Logo após o treino</span>",
+          "title": "Desjejum / Pós-Cardio",
           "theme": "default",
           "badge": null,
           "timing": "Logo após o treino",
@@ -1469,7 +1469,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Almoço</span>",
+          "title": "Almoço",
           "theme": "default",
           "badge": null,
           "timing": "12:30 – 13:30",
@@ -1509,7 +1509,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Lanche da Tarde<span class=\"timing\">16:00 – 16:30</span>",
+          "title": "Lanche da Tarde",
           "theme": "default",
           "badge": null,
           "timing": "16:00 – 16:30",
@@ -1534,7 +1534,7 @@ window.MEAL_PLAN = {
           "note": null
         },
         {
-          "title": "Jantar</span>",
+          "title": "Jantar",
           "theme": "default",
           "badge": null,
           "timing": "20:30 – 21:30",

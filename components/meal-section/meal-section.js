@@ -15,9 +15,7 @@
             return `<tr><td>${item.name}</td><td${qtyClass}>${item.qty}</td></tr>`;
         }).join('');
 
-        const thead = meal.items.some(item => item.name.includes('<thead>') || false)
-            ? ''
-            : '<thead><tr><th>Alimento</th><th class="r">Quantidade</th></tr></thead>';
+        const thead = '<thead><tr><th>Alimento</th><th class="r">Quantidade</th></tr></thead>';
 
         const noteHtml = meal.note
             ? `<div class="note${meal.note.variant !== 'default' ? ' ' + meal.note.variant : ''}">${meal.note.text}</div>`
