@@ -78,3 +78,87 @@ collapsible-panel.subs .coll-body { padding-top: 20px; }
 
 .collapsible-section.collapsed .coll-body { display: none; }
 .collapsible-section.collapsed .coll-icon { transform: rotate(-90deg); }
+
+.avoid-grid,
+.supp-grid,
+.tea-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.avoid-card {
+    background: #fff5f5;
+    border: 1px solid #f0c8c8;
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+
+.avoid-card-title {
+    font-size: 11px;
+    font-weight: 800;
+    color: #c0392b;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 7px;
+}
+
+.avoid-card p {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.supp-card,
+.tea-card {
+    background: #f7faf7;
+    border: 1px solid #d8e8d8;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.supp-name,
+.tea-name {
+    font-size: 14px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+}
+
+.supp-dose {
+    font-size: 13px;
+    color: #e67e22;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.supp-note,
+.tea-body {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.tea-name { color: #6c3483; margin-bottom: 8px; }
+
+.tea-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #888;
+    margin: 8px 0 4px;
+}
+
+.tea-obs {
+    font-size: 11.5px;
+    color: #c0392b;
+    margin-top: 8px;
+    line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+    .avoid-grid,
+    .supp-grid,
+    .tea-grid { grid-template-columns: 1fr; }
+}

@@ -15,7 +15,11 @@ Thiago Oliveira.
 - `components/`: Web Components e seus estilos.
 - `data/`: dados estruturados do plano e das receitas.
 - `css/`: estilos compartilhados e estilos das páginas.
-- `pdfs/`: documentos de referência locais, ignorados pelo Git.
+- `pdfs/`: documentos de referência locais (não publicados).
+- `manu/*.pdf`: PDFs de referência da Emanuelle (não publicados).
+
+Arquivos `.pdf` e a pasta `pdfs/` estão no `.gitignore`, então não vão para o
+GitHub Pages e não ficam acessíveis pela URL pública do site.
 
 ## Executar localmente
 

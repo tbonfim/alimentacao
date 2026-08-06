@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano Alimentar – Emanuelle Rodrigues – Setembro 2023</title>
+    <link rel="stylesheet" href="../css/shared.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../components/meal-section/meal-section.css">
+    <link rel="stylesheet" href="../components/meal-planner/meal-planner.css">
+    <link rel="stylesheet" href="../components/collapsible-panel/collapsible-panel.css">
+    <link rel="stylesheet" href="../components/substitution-grid/substitution-grid.css">
+</head>
+<body>
+<div class="page">
+
+    <div class="header">
+        <div>
+            <h1>Plano Alimentar</h1>
+            <p class="sub">SII · Zero Lactose · Low-FODMAP — Setembro 2023</p>
+        </div>
+        <div class="header-right">
+            <strong>Emanuelle Rodrigues</strong><br>
+            Dra. Emília de Lemos Bretas · CRN9 11076
+        </div>
+    </div>
+
+    <meal-planner></meal-planner>
+
+    <collapsible-panel class="obs" title="Orientações Gerais" source="guidelines" collapsed></collapsible-panel>
+
+    <collapsible-panel class="obs" title="Alimentos a Evitar — Alto FODMAP" source="avoidFoods" collapsed></collapsible-panel>
+
+    <collapsible-panel class="subs" variant="subs" title="Tabela de Substituições Low-FODMAP" collapsed>
+        <substitution-grid></substitution-grid>
+    </collapsible-panel>
+
+    <collapsible-panel class="obs" title="Suplementação Prescrita" source="supplements" collapsed></collapsible-panel>
+
+    <collapsible-panel class="obs" title="Chás Digestivos" source="teas" collapsed></collapsible-panel>
+
+    <div class="footer">
+        <div>
+            <strong>Emanuelle Rodrigues</strong> — Plano Alimentar Setembro 2023<br>
+            Dra. Emília de Lemos Bretas · CRN9 11076
+        </div>
+        <div class="footer-note">
+            <em>Rua Dom Bosco, 231 — Itabirito/MG · emilialbretas@gmail.com</em>
+        </div>
+    </div>
+
+    <div class="color-bar">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+</div>
+
+<script src="../data/meal-plan-manu.js"></script>
+<script src="../components/meal-section/meal-section.js"></script>
+<script src="../components/meal-planner/meal-planner.js"></script>
+<script src="../components/substitution-grid/substitution-grid.js"></script>
+<script src="../components/collapsible-panel/collapsible-panel.js"></script>
+</body>
+</html>

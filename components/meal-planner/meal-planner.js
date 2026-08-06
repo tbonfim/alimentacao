@@ -1,5 +1,5 @@
 (function () {
-    const DAY_ORDER = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sab'];
+    const WEEKDAY_IDS = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sab'];
 
     function renderTimeline(timeline) {
         if (!timeline || !timeline.steps.length) return '';
@@ -76,9 +76,9 @@
                 </div>
             `).join('');
 
-            const daysHtml = DAY_ORDER
-                .filter(id => plan.days[id])
-                .map(id => renderDayPlan(plan.days[id]))
+            const daysHtml = plan.tabs
+                .filter(tab => plan.days[tab.id])
+                .map(tab => renderDayPlan(plan.days[tab.id]))
                 .join('');
 
             this.innerHTML = `
@@ -107,9 +107,13 @@
         }
 
         showToday() {
-            const todayId = DAY_ORDER[new Date().getDay()];
+            const plan = window.MEAL_PLAN;
+            const tabIds = plan.tabs.map(tab => tab.id);
+            const weekdayId = WEEKDAY_IDS[new Date().getDay()];
+            const fallbackId = plan.defaultDay || tabIds[0];
+            const todayId = tabIds.includes(weekdayId) ? weekdayId : fallbackId;
             const tab = this.querySelector('#btn-' + todayId);
-            if (tab) tab.classList.add('today');
+            if (tab && tabIds.includes(weekdayId)) tab.classList.add('today');
             this.showDay(todayId);
         }
     }
